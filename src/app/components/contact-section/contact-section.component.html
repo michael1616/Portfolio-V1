@@ -1,0 +1,148 @@
+<!--Contac section design-->
+<section data-aos="fade-up" data-aos-duration="1000" class="contact" id="contact">
+    <h2 data-aos="fade-down" data-aos-duration="1000" class="heading">{{headingPartA}}<span>{{headingPartB}}</span></h2>
+
+    <div *ngIf="loading" class="container-spinner">
+        <div class="lds-hourglass"></div>
+    </div>
+   
+
+
+    <form [formGroup]="form" (ngSubmit)="saveContact()">
+
+        <div class="input-box">
+            <div class="container-input">
+                <input type="text" [placeholder]="placeHolderName" formControlName="fullName">
+                <span *ngIf="this.form.get('fullName')?.errors?.['required'] && this.form.get('fullName')?.touched " class="mda-form-msg">
+                    <div *ngIf="this.lang == 'ES'; else labelEnglishFullNameRequired">
+                        Este campo es <strong>requerido</strong>
+                    </div>
+                    <ng-template #labelEnglishFullNameRequired>
+                        This fields is <strong>required</strong>
+                    </ng-template>
+                </span>
+                <span *ngIf="this.form.get('fullName')?.errors?.['maxlength'] && this.form.get('fullName')?.touched" class="mda-form-msg">
+                    <div *ngIf="this.lang == 'ES'; else labelEnglishFullNameMax">
+                        Este campo debe de contener máximo 100 caracteres
+                    </div>
+                    <ng-template #labelEnglishFullNameMax>
+                        This field must have maximum 100 characters
+                    </ng-template>
+                </span>
+                <span *ngIf="this.form.get('fullName')?.errors?.['minlength'] && this.form.get('fullName')?.touched" class="mda-form-msg">
+                    <div *ngIf="this.lang == 'ES'; else labelEnglishFullNameMin">
+                        Este campo debe de contener mínimo 3 caracteres
+                    </div>
+                    <ng-template #labelEnglishFullNameMin>
+                        This field must have minimum 3 characters
+                    </ng-template>
+                </span>
+            </div>
+            <div class="container-input">
+                <input type="email" [placeholder]="placeHolderEmail" formControlName="email">
+                <span *ngIf="this.form.get('email')?.errors?.['required'] && this.form.get('email')?.touched" class="mda-form-msg">
+                    <div *ngIf="this.lang == 'ES'; else labelEnglishEmailRequired">
+                        Este campo es <strong>requerido</strong>
+                    </div>
+                    <ng-template #labelEnglishEmailRequired>
+                        This fields is <strong>required</strong>
+                    </ng-template>
+                </span>
+                <span *ngIf="this.form.get('email')?.errors?.['maxlength'] && this.form.get('email')?.touched" class="mda-form-msg">
+                    <div *ngIf="this.lang == 'ES'; else labelEnglishEmailMax">
+                        Este campo debe de contener máximo 90 caracteres
+                    </div>
+                    <ng-template #labelEnglishEmailMax>
+                        This field must have maximum 90 characters
+                    </ng-template>
+                </span>
+                <span *ngIf="this.form.get('email')?.errors?.['minlength'] && this.form.get('email')?.touched" class="mda-form-msg">
+                    <div *ngIf="this.lang == 'ES'; else labelEnglishEmailMin">
+                        Este campo debe de contener mínimo 5 caracteres
+                    </div>
+                    <ng-template #labelEnglishEmailMin>
+                        This field must have minimum 5 characters
+                    </ng-template>
+                </span>
+                <span *ngIf="this.form.get('email')?.errors?.['email'] && this.form.get('email')?.touched" class="mda-form-msg">
+                    <div *ngIf="this.lang == 'ES'; else labelEnglishEmailType">
+                        Este campo debe de ser un email
+                    </div>
+                    <ng-template #labelEnglishEmailType>
+                        This field must be an email
+                    </ng-template>
+                </span>
+            </div>
+        </div>
+
+        <div class="input-box">
+            <div class="container-input">
+                <input type="text" [placeholder]="placeHolderNumber" formControlName="phoneNumber">
+                <span *ngIf="this.form.get('phoneNumber')?.errors?.['required'] && this.form.get('phoneNumber')?.touched" class="mda-form-msg">
+                    <div *ngIf="this.lang == 'ES'; else labelEnglishPhoneRequired">
+                        Este campo es <strong>requerido</strong>
+                    </div>
+                    <ng-template #labelEnglishPhoneRequired>
+                        This fields is <strong>required</strong>
+                    </ng-template>
+                </span>
+                <span *ngIf="this.form.get('phoneNumber')?.errors?.['maxlength'] && this.form.get('phoneNumber')?.touched" class="mda-form-msg">
+                    <div *ngIf="this.lang == 'ES'; else labelEnglishPhoneMax">
+                        Este campo debe tener máximo 15 caracteres
+                    </div>
+                    <ng-template #labelEnglishPhoneMax>
+                        This field must have maximum 15 characters
+                    </ng-template>
+                </span>
+                <span *ngIf="this.form.get('phoneNumber')?.errors?.['minlength'] && this.form.get('phoneNumber')?.touched" class="mda-form-msg">
+                    <div *ngIf="this.lang == 'ES'; else labelEnglishPhoneMin">
+                        Este campo debe tener mínimo 4 caracteres
+                    </div>
+                    <ng-template #labelEnglishPhoneMin>
+                        This field must have minimum 4 characters
+                    </ng-template>
+                </span>
+                <span *ngIf="this.form.get('phoneNumber')?.errors?.['pattern'] && this.form.get('phoneNumber')?.touched" class="mda-form-msg">
+                    <div *ngIf="this.lang == 'ES'; else labelEnglishPhone">
+                        Este campo debe ser de solo números
+                    </div>
+                    <ng-template #labelEnglishPhone>
+                        This field must be only numbers
+                    </ng-template>
+                </span>
+            </div>
+        </div>
+
+        <div class="container-input">
+            <textarea name="" id="" cols="30" rows="10" [placeholder]="placeHolderTextArea"
+            formControlName="message"></textarea>
+            <span *ngIf="this.form.get('message')?.errors?.['required'] && this.form.get('message')?.touched" class="mda-form-msg">
+                <div *ngIf="this.lang == 'ES'; else labelEnglishMessageRequired">
+                    Este campo es <strong>requerido</strong>
+                </div>
+                <ng-template #labelEnglishMessageRequired>
+                    This fields is <strong>required</strong>
+                </ng-template>
+            </span>
+            <span *ngIf="this.form.get('message')?.errors?.['maxlength'] && this.form.get('message')?.touched" class="mda-form-msg">
+                <div *ngIf="this.lang == 'ES'; else labelEnglishMessageMax">
+                    Este campo debe de tener máximo 700 caracteres
+                </div>
+                <ng-template #labelEnglishMessageMax>
+                    This field must have maximum 700 characters
+                </ng-template>
+            </span>
+            <span *ngIf="this.form.get('message')?.errors?.['minlength'] && this.form.get('message')?.touched" class="mda-form-msg">
+                <div *ngIf="this.lang == 'ES'; else labelEnglishMessageMin">
+                    Este campo debe tener mínimo 5 caracteres
+                </div>
+                <ng-template #labelEnglishMessageMin>
+                    This field must have minimum 5 characters
+                </ng-template>
+            </span>
+        </div>
+        
+        <input type="submit" [value]="btnSend" [disabled]="form.invalid || loading" class="btn">
+
+    </form>
+</section>

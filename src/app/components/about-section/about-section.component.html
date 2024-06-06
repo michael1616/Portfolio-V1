@@ -1,0 +1,18 @@
+    <!--About section design-->
+    <section class="about" id="about">
+        <div data-aos="fade-right" data-aos-duration="1000" class="about-img">
+            <img src="./assets/img/foto4.png" alt="">
+        </div>
+
+        <div data-aos="zoom-in" data-aos-duration="1000" class="about-content">
+            <h2 data-aos="fade-down" data-aos-duration="1000" class="heading">{{titlePart1}} <span>{{titlePart2}}</span></h2>
+            <h3>Full-Stack Developer</h3>
+            <p>{{shortDescriptionA}}</p>
+
+            <p *ngIf="readMore" [ngClass]="readMoreAnimation ? 'fade-in-text': 'fade-out-text'" id="second-text-about">
+                {{shortDescriptionB}}
+            </p>
+            <a href="#" (click)="readMoreAction($event)" class="btn" id="read-more-about">{{textButton}}</a>
+        </div>
+
+    </section>

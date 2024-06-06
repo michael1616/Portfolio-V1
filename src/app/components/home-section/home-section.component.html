@@ -1,0 +1,27 @@
+<!--Home section design-->
+<section class="home" id="home">
+    <div data-aos="fade-down" data-aos-duration="1000" class="home-content">
+        <h3 id="title">{{titleH3}}</h3>
+        <h1 data-aos="fade-right" data-aos-duration="1000" id="name">Michael A Macías</h1>
+        <ngx-typed-js [loop]="true" [typeSpeed]="100"
+            [strings]="['FullStack Developer', 'Senior Backend Developer', 'Frontend Developer']">
+            <h3 id="subTitle">{{profession}}<span id="span" class="typing multiple-text">Backend Developer</span></h3>
+        </ngx-typed-js>
+
+        <!--data-aos="fade-left" data-aos-duration="1000"-->
+        <p  data-aos="zoom-in" data-aos-duration="1000" class="text-cont">{{shortDescription}}</p>
+        <div class="social-media">
+            <a href="https://www.instagram.com/michael16macias/?hl=af"><i class='bx bxl-instagram-alt'></i></a>
+            <a
+                href="https://www.facebook.com/people/Michael-Alexander-Mac%C3%ADas-Tuberquia/pfbid0i1QUhMeSLeoCVbCacDb4w5DSdkDGPvdLUqpoFE8C9b8nZkDjvjLKojeLqJY3pxBfl/"><i
+                    class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-whatsapp'></i></a>
+            <a href="https://www.linkedin.com/in/michael-alexander-mac%C3%ADas-tuberquia-36b6011ba/"><i
+                    class='bx bxl-linkedin'></i></a>
+        </div>
+        <a [href]="linkCV" class="btn">{{btnCV}}</a>
+    </div>
+    <div data-aos="fade-up" data-aos-duration="1000" class="home-img">
+        <img src="./assets/img/foto1.jpg" alt="">
+    </div>
+</section>

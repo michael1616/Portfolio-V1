@@ -1,0 +1,16 @@
+<header class="header">
+    <a href="#" class="logo">{{titlePage}}</a>
+    <i [class]='iconMenu' (click)="toggleMenu()" id="menu-icon"></i>
+
+    <div class="container-menu">
+        <nav class="navbar" [ngClass]="showMenu ? 'active': ''">
+            <a href="#home" (click)="goToSection('home')" [ngClass]="currentSection == 'home' ? 'active-link' : ''">{{homeText}}</a>
+            <a href="#about" (click)="goToSection('about')" [ngClass]="currentSection == 'about' ? 'active-link' : ''">{{aboutText}}</a>
+            <a href="#services" (click)="goToSection('services')" [ngClass]="currentSection == 'services' ? 'active-link' : ''">{{serviceText}}</a>
+            <a href="#portafolio" (click)="goToSection('portafolio')" [ngClass]="currentSection == 'portafolio' ? 'active-link' : ''">{{portafolioText}}</a>
+            <a href="#contact" (click)="goToSection('contact')" [ngClass]="currentSection == 'contact' ? 'active-link' : ''">{{contactText}}</a>
+        </nav>
+
+        <span (click)="changeLang()" id="switch-lang">{{lang}}</span>
+    </div>
+</header>
